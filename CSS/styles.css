@@ -86,20 +86,21 @@ p {
 /* Main Section */
 
 .post-container {
-  margin: 0px 150px 50px 150px
+  margin: 5% 10% 5% 10%
 }
 
 .post-title {
-  padding: 25px 5px 5px 0px
+  padding: 0
 }
 
 .post-dateline {
-  padding: 0px 5px 5px 0px
+  padding: 0
 }
 
 .post-body {
-  padding: 5px 10px 5px 0px;
-  text-align: left
+  padding-top: 10px;
+  text-align: left;
+  color: black
 }
 
 .post-link{
