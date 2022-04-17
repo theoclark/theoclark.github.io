@@ -68,7 +68,95 @@
             <p>17th April 2022</p>
           </div>
           <div class="post-body">
-            <p>main text goes here</p>
+            <p>
+              I only recently embarked on this journey into Machine Learning (ML) and, I have to say, at points it’s seemed pretty daunting. To be honest it still feels like that at times but the start is definitely the most difficult. You type machine learning into google and up comes a whole array of various sub-topics littered with terminology you’ve never heard of and, worse still, lines of complex equations with symbols you’ve never seen before. It can be overwhelming. So, where to start?
+            </p>
+            <p>
+              Firstly, it depends on your background: if you are mathematical-minded but have no coding experience then your approach is going to be different to somebody coming from another tech field but who perhaps hasn’t done any maths since they left school. Secondly, it depends on your preferred approach and learning style. Some prefer a top down approach where they see the end result to start with and then peel away a layer of difficulty one step at a time. Others prefer to work from the ground up, establishing the fundamentals first. Whatever your approach, there are plenty of resources out there to help you.
+            </p>
+            <p>
+              When it comes to mastering  ML there are two major aspects: theory and practice. First you have to understand the theory and mathematics behind the models and then you need to learn the relevant programming languages and libraries required to build the models and get them to work.
+            </p>
+            <h5>Theory</h5>
+            <p>
+              There are a number of  Machine Learning techniques and models out there. The most successful and broadly used are neural networks, which are loosely inspired by how neurons in the brain interact. The basic idea behind a neural network is that you want to train an algorithm, or model, to make a certain prediction or give a particular output when it is given a specific input. They are, in essence, extremely complicated nonlinear functions. These models contain parameters (sometimes up to a billion), which are essentially numbers that the input values are multiplied by and added to in a specific way to give an output. If these values are randomised then the output of the model will also be randomised, and therefore useless. The trick is to train these parameters to take optimum values which allow the model as a whole to make useful predictions. The training of a neural network is therefore the adjustment of these parameters.
+            </p>
+            <p>
+              The way that inputs are fed through these models and interact with the parameters is predominantly via matrix multiplication and addition. Therefore step one to understanding these models is to get comfortable with linear algebra. There is a lot of maths in ML but, like anything else, maths can be learnt and there are lots of resources out there to help.
+            </p>
+            <p>
+              There are two approaches to training models: supervised and unsupervised learning. Supervised learning is by far the most common so we will focus on that. For supervised learning you need a labelled dataset. This means that you have a large number of input values and their corresponding outputs. In order to train the model, you feed the input values into the model and see what the model predicts. You then assess how closely the prediction matches the correct output (this is called a  loss function). If the model does not correctly predict the output then the parameters are adjusted  slightly in the correct direction so that the model makes a better prediction (this is called the update step and is achieved using an optimiser). This is repeated over and over again, and the model gradually improves. Once the model is deemed good enough then it can be used for inference i.e. making predictions when you don’t know what the correct answer is.
+            </p>
+            <p>
+              One question you may have is: how does the model get better? While comparing the prediction to the expected answer is easy enough, it’s not immediately obvious how the model can alter its parameters in such a way that it can guarantee that it will make better predictions in the future. The solution to this is called backpropagation. This involves differentiation and is something you’ll want to read up on. All optimisers use this technique.
+            </p>
+            <p>
+              In terms of a basic framework, that’s all there is to it. But things obviously get a lot more complicated. There are many ways in which these models are designed and they vary hugely depending on what the purpose of the model is. Because these models are so large and contain so many parameters they can be quite hard to train. Therefore a lot of innovations around model design are based around getting models to train faster and better i.e. not getting stuck.
+            </p>
+            <p>
+              Here is a non-exhaustive list of concepts and techniques that you’ll want to dive into:
+            </p>
+            <ol>
+              <li>Model types</li>
+              <ul>
+                <li>MLP (Multilayer Perceptron) – the most basic neural network and a good starting point.</li>
+                <li>CNNs (Convolutional Neural Networks) – primarily used for image processing tasks.</li>
+                <li>RNNs (Recurrent Neural Networks) – primarily used for text processing tasks.</li>
+                <li>RNNs (Recurrent Neural Networks) – primarily used for text processing tasks.</li>
+              </ul>
+              <li>Backpropagation – how models learn, by calculating gradients for each parameter.</li>
+              <li>Loss functions -  such as  cross entropy loss and mean square error loss.</li>
+              <li>Optimisers  - such as SGD (Stochastic Gradient Descent) and ADAM). Great post <a href="https://ruder.io/optimizing-gradient-descent/">here</a>.</li>
+              <li>Batching – the idea of grouping inputs into batches before inputting them for performance.</li>
+              <li>Batch normalisation – a technique for stabilising models.</li>
+            </ol>
+            <p>
+              The concepts mentioned above only scratch the surface, you really are opening a can of worms. However, I would say they are the most important starting points.
+            </p>
+            <h5>Practice</h5>
+            <p>
+              The vast majority of ML code is written in Python. If you don’t already know Python then that will probably be a good place to start. There are lots of tutorials online and, for practice, you can have a go at the problems on <a href="https://projecteuler.net">projecteuler</a>.
+            </p>
+            <p>
+              Once you’ve got to grips with Python you’ll realise that there are two competing camps when it comes to ML libraries: Tensorflow and Pytorch. Both are built on Python. Tensorflow originates from Google whereas Pytorch comes from Facebook. I’ll be honest, I’ve never actually used Tensorflow. It was the first on the scene and Pytorch has grown very quickly to catch up with it, possibly now taking over. Pytorch seems to be used more in research papers whereas Tensorflow still has an edge in industry, but perhaps not for much longer.
+            </p>
+            <p>
+              There are also libraries that are built on top of Tensorflow (notably Keras) and PyTorch (notably PyTorch lightning) that provide another layer of abstraction and reduce the need for boilerplate code.
+            </p>
+            <p>
+              In terms of where to write your code: jupyter notebooks are probably the best place to start. They are really easy to use and allow you to experiment and change your code easily. For an industry application it’s not going to be appropriate but for learning and research it’s ideal. It might feel a little odd at first if you’re used to running entire scripts but you won’t look back. A lot of the models require quite a bit of computing power to run. They also run faster on GPUs which are much better at performing linear algebra calculations. As a result, you’ll probably not want to use your own computer. Fortunately, there is an answer in cloud computing. Many options are available but one of the most common is Google Colab. The notebooks are based on jupyter and have very similar functionality but the code runs on a Google GPU in the cloud. The free allocation will be more than enough whilst you’re starting out.
+            </p>
+            <p>
+              Once things get serious and you have a model that you want to actually use and scale up, you’ll need to think about how to host your model and get it to interact with an API and make inferences. Frankly, I’m not the person to advise on this as I haven’t even got there myself. However, if you’re interested, the most common platform I’ve heard of is Kubernetes.
+            </p>
+            <p>
+              So that’s the overview. But how do you actually learn how to write the code and make the models? PyTorch and Tensorflow have documentation and sample code for you to look at and get to grips with how it actually works. The internet, often in the form of StackOverflow, is of course an irreplaceable guide. However, there are also excellent courses and blogs out there that take you through code examples step by step and help you understand. But there is no substitute for writing your own code. It all seems easy until you have to do it yourself. The hours of debugging and scouring the internet are all part of the process and, step by step, you’ll get there.
+            </p>
+            <p>
+              I hope this post has been useful. There’s a list of resources below to help you get started. I have no affiliations to any of them, I have just found them helpful for me. There are plenty of other resources out there.
+            </p>
+            <h5>Resources</h5>
+            <p>
+              <a href="https://www.coursera.org/learn/machine-learning">Stanford Machine Learning Course</a> - over 10 years old and with roughly 5 million enrolled this is an absolute classic, and for good reason. Models these days are far more complex and built with a higher layer of abstraction so you will hardly ever have to write the code that is taught in this course. However, it explains the foundations clearly and doesn’t fudge over the mathematics either so, if you’re mathematically minded and you like building things up from the basics, this is an excellent place to start.
+            </p>
+            <p>
+              <a href="https://www.fast.ai">FastAI</a> - This is the opposite of the Stanford Course in being very top down. You’ll get to run highly capable models very quickly using high level fastai functions. FastAI has built its own library that runs on top of PyTorch with a multi-layer API. This means that it is relatively easy to use for beginners and, as you gain confidence, you can start customising more and accessing lower level functions. The downside to this is that it can leave you a little lost because these magical functions are essentially black boxes and, as soon as something stops working, it can be hard to work out why.
+            </p>
+            <p>
+              <a href="https://d2l.ai/index.html">Dive into Deep Learning</a> - Available online and as a book, this is a really helpful course for taking you through a lot of the key concepts in ML. It has code alongside it (in Tensorflow and PyTorch) so that you can run models and build your own as you go through.
+            </p>
+            <p>
+              <a href="https://tivadar.gumroad.com/l/mathematics-of-machine-learning">Mathematics of Machine Learning</a> - A book that’s still being written but you can get early access. A good resource for getting to grips with many of the mathematical concepts involved in ML.
+            </p>
+            <p>
+              Twitter – No channels in particular but just a note to say that ML is quite big on Twitter. It can be a good way to follow what’s going on and see the latest news.
+            </p>
+            <p>
+              <a href="https://www.youtube.com/c/KárolyZsolnai">Two Minute Papers</a> - A good YouTube channel for keeping up with the latest developments, and for blowing your mind.
+            </p>
+            <p>
+              <a href="https://changelog.com/practicalai">Practical AI</a> - A weekly podcast on AI with new developments and news.  
+            </p>
           </div>
         </div>
 
