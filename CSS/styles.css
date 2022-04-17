@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5 {
   font-family: 'Roboto Slab', serif;
 }
 
-p {
+p, li {
   font-family: 'Nunito Sans', sans-serif;
   padding: 5px 0;
   line-height: 1.5rem;
