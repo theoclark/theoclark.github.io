@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theo Clark</title>
+
+  <!-- Bootstrap Stylesheet link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <!-- Stylesheet link -->
+  <link rel="stylesheet" href="../CSS/bootstrap-edit.css">
+  <link rel="stylesheet" href="../CSS/styles.css">
+
+  <!-- Fontawesome link -->
+  <script src="https://kit.fontawesome.com/00d694336d.js" crossorigin="anonymous"></script>
+
+  <!-- Google fonts link -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MNRQL0TPM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-64QDKCWTBJ');
+  </script>
+
+</head>
+
+<body>
+  <div id=page-container>
+    <div id=content-wrap>
+
+      <!-- Navigation Bar Section -->
+
+      <section class="dark-section" id="Navigation-Bar">
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid px-5">
+            <a class="navbar-brand" href="../index.html">Theo Clark</a>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+                <a class="nav-link active" href="../index.html">Home</a>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+
+      </section>
+
+      <!-- Main Section -->
+
+      <section class="light-section">
+        <div class="post-container">
+          <div class="post-title">
+            <h2>Loss Functions in PyTorch</h2>
+          </div>
+          <div class="post-dateline">
+            <p>20th April 2022</p>
+          </div>
+          <div class="post-body">
+            <div class="text-section">
+              <p>
+                This post aims to cover what loss functions are, what are the differences between them and when you should use each one and finally how to use them in PyTorch.
+              </p>
+              <h5>What is a loss function?</h5>
+              <p>
+                When you are training your neural network you need to assess how well your model is doing. You do this by comparing the predictions your model is making to the desired output. The function that carries out this comparison is called a loss function. Usually it will be designed to return a positive value and the closer  that value is to zero the better the result. This can then be used to update the parameters and improve your model using an optimiser.
+              </p>
+              <p>
+                Depending on what your model is doing, you’re going to want to use a different loss function. If your model is a linear regression where your prediction is a continuous variable then this is different from a classification model where your output is binary.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>What are the different types and when to use them?</h5>
+              <p>
+                There are many different loss functions that you could want to use: PyTorch lists 21. However, many of them have a fairly niche usage. We’ll focus on three of the most common here.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>Mean Squared Error (nn.MSELoss)</h5>
+              <p>
+                This is used for regression tasks where the predicted and target values are both continuous variables. MSELoss calculates the mean squared difference between each prediction and target pair, expressed using the following formula:
+              </p>
+              <img src="../images/MSE.png" alt="Binary Cross Entropy Loss Equation">
+              <h5 class="intuition-paragraph">Intuition</h5>
+              <p class="intuition-paragraph">
+                The closer the target (y) and the prediction (x) are to one another the smaller the absolute value of y - x. Taking the square of this value ensures that a positive value is always returned. This is then summed across all x to give an overall loss. The smaller the value the closer the distributions of x and y are to one another.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>Cross Entropy Loss (nn.CrossEntropyLoss)</h5>
+              <p>
+                This is used for single-label classification tasks where the target value is either 0 or 1 and the prediction is a value between 0 and 1. Cross Entropy Loss takes the predictions for each category in the targets and passes them through a softmax function (this converts all the values into probabilities that sum to one) then takes the negative log so that all values are between 0 and infinity, where a value closer to zero means that the predictions are close to the targets. The softmax and overall cross entropy functions are shown below:
+              </p>
+              <img src="../images/Softmax.png" alt="Binary Cross Entropy Loss Equation">
+              <img src="../images/CrossEntropyLoss.png" alt="Binary Cross Entropy Loss Equation">
+              <h5 class="intuition-paragraph">Intuition</h5>
+              <p class="intuition-paragraph">
+                Say you have a classification task where you are trying to predict which animal is in an image. For each possible classification, the model returns an activation, the larger the activation the more likely the model considers the image to represent that classification.
+              </p>
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+
+                  </div>
+                  <div class="col-4">
+                    <img id="dog-photo" src="../images/Dog.jpg" alt="Binary Cross Entropy Loss Equation">
+                  </div>
+                  <div class="col-4">
+                    <table id="dog-table" class="intuition-paragraph">
+                      <tr>
+                        <th>Classification</th>
+                        <th>Cat</th>
+                        <th>Dog</th>
+                        <th>Wolf</th>
+                      </tr>
+                      <tr>
+                        <th>Target</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>0</th>
+                      </tr>
+                      <tr>
+                        <th>Activation</th>
+                        <th>0.2</th>
+                        <th>8</th>
+                        <th>7.2</th>
+                      </tr>
+                      <tr>
+                        <th>Simple Probability</th>
+                        <th>0.013</th>
+                        <th>0.52</th>
+                        <th>0.47</th>
+                      </tr>
+                      <tr>
+                        <th>Softmax</th>
+                        <th>0.00028</th>
+                        <th>0.69</th>
+                        <th>0.31</th>
+                      </tr>
+                      <tr>
+                        <th>Max</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>0</th>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <p class="intuition-paragraph">
+                The softmax function turns these activations into probabilities. The simplest way to do this would be to calculate the following probability:
+              </p>
+              <img src="../images/SimpleProbability.png" alt="Binary Cross Entropy Loss Equation">
+              <p class="intuition-paragraph">
+                Whilst this is fine, the aim of the softmax function is to over-emphasise the highest activation in order to make the model more confident. The extreme end of this approach would simply be to return 1 for the maximum activation and 0 for the rest. Due to the exponential, the softmax function over-emphasises the largest value but the result is not as extreme as the max approach, hence why it is considered ‘soft’.
+              </p>
+              <p class="intuition-paragraph">
+                Once we have probabilities for each of our activations we then need to calculate the cross entropy. Cross entropy originates from information theory and there isn’t space to explain it in huge detail here. Put simply, it calculates how similar two probability distributions are. In our case it is comparing the probability distribution from our model with the distribution of the target.
+              </p>
+              <p class="intuition-paragraph">
+                The fundamental equation for cross entropy is as follows:
+              </p>
+              <img src="../images/CrossEntropy.png" alt="Binary Cross Entropy Loss Equation">
+              <p class="intuition-paragraph">
+                Here, p(x) is the probability of event x occurring in the target distribution and q(x) is the probability of x occurring in the model’s distribution. It is more helpful to consider it being made of two parts:
+              </p>
+              <img src="../images/CrossEntropyDissected.png" alt="Binary Cross Entropy Loss Equation">
+              <p class="intuition-paragraph">
+                The larger q(x), the larger -log(q(x)). When both p(x) and q(x) are large, a large value is returned, when both are small, a small value is returned. However, when summed across all values of x, the overall cross entropy is lower when the distributions are more similar (i.e. the model is a better predictor). The cross entropy is calculated for each input in the batch and then usually averaged.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>Binary Cross Entropy with Logistics (nn.BCEWithLogitsLoss)</h5>
+              <p>
+                This is used for multi-label classification tasks. It first passes the predictions through a sigmoid function so that they are between 0 and 1. It then takes the mean of the negative log of the difference between the prediction and the target (0 or 1). This gives values between 0 and infinity with 0 being desirable. The full function is shown below:
+              </p>
+              <img src="../images/BCELoss.png" alt="Binary Cross Entropy Loss Equation">
+              <h5 class="intuition-paragraph">Intuition</h5>
+              <p class="intuition-paragraph">
+                In the case of multi-classification it does not make sense to convert all of the values into probabilities. This is because there does not have to be one answer. If there is a high probability of a dog being in the image, it does not necessarily make it less likely that a cat will also be found in the image. We therefore want our activations to be independent of one another. However, we do still want our values to be between 0 and 1 so that it can represent an individual probability of that category being found. This is why we use the sigmoid function to force each activation to lie between 0 and 1.
+              </p>
+              <img src="../images/Sigmoid.png" alt="Binary Cross Entropy Loss Equation">
+              <p class="intuition-paragraph">
+                This then simplifies down to a binary problem. Rather than having multiple probabilities, one for each possible category, we now have two probabilities: the probability of that particular category being present and the probability of it not being present. These of course sum to 1.
+              </p>
+              <p class="intuition-paragraph">
+                The cross entropy for each probability then needs to be calculated. The cross entropy for the probability of x being present is:
+              </p>
+              <img src="../images/BCEPart1.png" alt="Binary Cross Entropy Loss Equation">
+              <p class="intuition-paragraph">
+                And the cross entropy of the probability of x being absent is:
+              </p>
+              <img src="../images/BCEPart2.png" alt="Binary Cross Entropy Loss Equation">
+              <p class="intuition-paragraph">
+                These are then summed together to give the cross entropy for that category. We then sum across all of the possible categories and then repeat across the batch and average.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>How do you use loss functions in PyTorch?</h5>
+              <p>
+                You’ll need to use the torch.nn module. For example, if you wanted to use the simplest loss function: MSELoss then you can import the relevant class using the following step at the top of your code:
+              </p>
+              <pre><code>from torch.nn import MSELoss</code></pre>
+              <p>
+                You will then need to create an instance of this class using parameters specific to your model in order to actually use the function. In most cases for MSELoss there won’t actually be any parameters you need to specify, although you can read about the options <a href="https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html#torch.nn.MSELoss">here</a>. You can therefore create an instance by simply typing this line of code:
+              </p>
+              <pre><code>loss_function = MSELoss()</code></pre>
+              <p>
+                Now you can actually use the function in your training loop. The function takes two parameters: the predicted values and the target values. It then returns the loss. This line of code shows you how to use it:
+              </p>
+              <pre><code>loss = loss_function(input,target)</code></pre>
+              <p>
+                You can then go ahead and calculate the gradients for your parameters and update the parameters using your optimiser.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Footer Section -->
+
+    <section>
+      <div id="Footer" class="dark-section" class="narrow-container">
+
+        <a class="footer-link" target="_blank" href="https://twitter.com/theo_clark_"><i class="footer-icon fab fa-twitter"></i></a>
+        <a class="footer-link" target="_blank" href="https://github.com/theoclark"><i class="footer-icon fab fa-github"></i></a>
+        <a class="footer-link" target="_blank" href="https://www.linkedin.com/in/theoclark1/"><i class="footer-icon fab fa-linkedin"></i></a>
+        <a class="footer-link" target="_blank" href="mailto:theoclark101@gmail.com"><i class="footer-icon fas fa-envelope"></i></a>
+        <p class="copyright">© Copyright 2022 Theo Clark</p>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Bootstrap Javascript Link -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+</body>
