@@ -178,6 +178,13 @@ table, th, td {
   margin-bottom: 50px
 }
 
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 #dog-photo {
   width: 75%;
   height: auto;
