@@ -83,7 +83,9 @@
               <p>
                 The training process alternates between training the discriminator and the generator. Each discriminator training step involves maximising the following general equation:
               </p>
-              <img src="../images/discriminator_update.png" alt="Discriminator Update Step Equation">
+              <div class="image-container">
+                <img src="../images/discriminator_update.png" alt="Discriminator Update Step Equation">
+              </div>
               <p class="source-reference">(Goodfellow et al., 2014)</p>
               <p class="equation-description">
                 The discriminator (D) is passed both a real image (x) and a fake image G(Z), where G is the generator which has been passed a random noise input (z). The discriminator's parameters are updated to maximise this function, thereby improving the ability of the discriminator.
@@ -91,7 +93,9 @@
               <p>
                 During this step, only the discriminator weights are updated. Then, the generator weights are updated to minimise the following general equation:
               </p>
-              <img src="../images/generator_update.png" alt="Generator Update Step Equation">
+              <div class="image-container">
+                <img src="../images/generator_update.png" alt="Generator Update Step Equation">
+              </div>
               <p class="source-reference">(Goodfellow et al., 2014)</p>
               <p class="equation-description">
                 The discriminator (D) is once again passed the fake image from the generator (G) following a random noise input (z). In this case it is the generator parameters which are updated to minimise the loss rather than maximise it, hence improving the generator's capabilities.
@@ -120,8 +124,12 @@
               <p>
                 As you can imagine, for two smooth distributions over a multi-dimensional space it becomes an intractable problem to find the minimum cost. As a result, simplifications have to be made. It has been shown that, if the function is Lipschitz continuous, then the loss function can be expressed as follows:
               </p>
-              <img src="../images/WGAN_update1.png" alt="WGAN Discriminator Update Step">
-              <img src="../images/WGAN_update2.png" alt="WGAN Generator Update Step">
+              <div class="image-container">
+                <img src="../images/WGAN_update1.png" alt="WGAN Discriminator Update Step">
+              </div>
+              <div class="image-container">
+                <img src="../images/WGAN_update2.png" alt="WGAN Generator Update Step">
+              </div>
               <p class="source-reference">(Arjovsky et al., 2017)</p>
               <p class="equation-description">
                 The first equation is the discriminator (f) update step. Just as with a regular GAN, the discriminator is fed both a real image (x) and a fake image from the generator (g), which is given a random noise input (z). The second step updates the generator weights as before. Apart from the removal of the logs, there is really very little difference between the update step in a GAN and WGAN.
@@ -138,7 +146,9 @@
               <p>
                 WGAN-GP therefore removes gradient clipping entirely and, instead, introduces a gradient penalty factor into the loss function of the discriminator update step:
               </p>
-              <img src="../images/WGAN-GP_update.png" alt="WGAN-GP Discriminator Update Step">
+              <div class="image-container">
+                <img src="../images/WGAN-GP_update.png" alt="WGAN-GP Discriminator Update Step">
+              </div>
               <p class="source-reference">(Gulrajani et al., 2017)</p>
               <p class="equation-description">
                 The first half of the equation is the same as in the regular WGAN (although the expression is simplified here). The discriminator (D) is passed the real image (x-tilde) and then the fake image (x) as before. The final part is the gradient penalty. The discriminator is passed a random point along the line between the real and fake image (x-hat) and the gradient norm is calculated. This is then directed towards 1. The recommended value for the gradient penalty coefficient (lambda) is 10 in the original paper.

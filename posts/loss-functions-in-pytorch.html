@@ -91,7 +91,9 @@
               <p>
                 This is used for regression tasks where the predicted and target values are both continuous variables. MSELoss calculates the mean squared difference between each prediction and target pair, expressed using the following formula:
               </p>
-              <img src="../images/MSE.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/MSE.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <h5 class="intuition-paragraph">Intuition</h5>
               <p class="intuition-paragraph">
                 The closer the target (y) and the prediction (x) are to one another the smaller the absolute value of y - x. Taking the square of this value ensures that a positive value is always returned. This is then summed across all x to give an overall loss. The smaller the value the closer the distributions of x and y are to one another.
@@ -102,8 +104,12 @@
               <p>
                 This is used for single-label classification tasks where the target value is either 0 or 1 and the prediction is a value between 0 and 1. Cross Entropy Loss takes the predictions for each category in the targets and passes them through a softmax function (this converts all the values into probabilities that sum to one) then takes the negative log so that all values are between 0 and infinity, where a value closer to zero means that the predictions are close to the targets. The softmax and overall cross entropy functions are shown below:
               </p>
-              <img src="../images/Softmax.png" alt="Binary Cross Entropy Loss Equation">
-              <img src="../images/CrossEntropyLoss.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/Softmax.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
+              <div class="image-container">
+                <img src="../images/CrossEntropyLoss.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <h5 class="intuition-paragraph">Intuition</h5>
               <p class="intuition-paragraph">
                 Say you have a classification task where you are trying to predict which animal is in an image. For each possible classification, the model returns an activation, the larger the activation the more likely the model considers the image to represent that classification.
@@ -160,7 +166,9 @@
               <p class="intuition-paragraph">
                 The softmax function turns these activations into probabilities. The simplest way to do this would be to calculate the following probability:
               </p>
-              <img src="../images/SimpleProbability.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/SimpleProbability.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <p class="intuition-paragraph">
                 Whilst this is fine, the aim of the softmax function is to over-emphasise the highest activation in order to make the model more confident. The extreme end of this approach would simply be to return 1 for the maximum activation and 0 for the rest. Due to the exponential, the softmax function over-emphasises the largest value but the result is not as extreme as the max approach, hence why it is considered ‘soft’.
               </p>
@@ -170,11 +178,15 @@
               <p class="intuition-paragraph">
                 The fundamental equation for cross entropy is as follows:
               </p>
-              <img src="../images/CrossEntropy.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/CrossEntropy.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <p class="intuition-paragraph">
                 Here, p(x) is the probability of event x occurring in the target distribution and q(x) is the probability of x occurring in the model’s distribution. It is more helpful to consider it being made of two parts:
               </p>
-              <img src="../images/CrossEntropyDissected.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/CrossEntropyDissected.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <p class="intuition-paragraph">
                 The larger q(x), the larger -log(q(x)). When both p(x) and q(x) are large, a large value is returned, when both are small, a small value is returned. However, when summed across all values of x, the overall cross entropy is lower when the distributions are more similar (i.e. the model is a better predictor). The cross entropy is calculated for each input in the batch and then usually averaged.
               </p>
@@ -184,23 +196,31 @@
               <p>
                 This is used for multi-label classification tasks. It first passes the predictions through a sigmoid function so that they are between 0 and 1. It then takes the mean of the negative log of the difference between the prediction and the target (0 or 1). This gives values between 0 and infinity with 0 being desirable. The full function is shown below:
               </p>
-              <img src="../images/BCELoss.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/BCELoss.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <h5 class="intuition-paragraph">Intuition</h5>
               <p class="intuition-paragraph">
                 In the case of multi-classification it does not make sense to convert all of the values into probabilities. This is because there does not have to be one answer. If there is a high probability of a dog being in the image, it does not necessarily make it less likely that a cat will also be found in the image. We therefore want our activations to be independent of one another. However, we do still want our values to be between 0 and 1 so that it can represent an individual probability of that category being found. This is why we use the sigmoid function to force each activation to lie between 0 and 1.
               </p>
-              <img src="../images/Sigmoid.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/Sigmoid.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <p class="intuition-paragraph">
                 This then simplifies down to a binary problem. Rather than having multiple probabilities, one for each possible category, we now have two probabilities: the probability of that particular category being present and the probability of it not being present. These of course sum to 1.
               </p>
               <p class="intuition-paragraph">
                 The cross entropy for each probability then needs to be calculated. The cross entropy for the probability of x being present is:
               </p>
-              <img src="../images/BCEPart1.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/BCEPart1.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <p class="intuition-paragraph">
                 And the cross entropy of the probability of x being absent is:
               </p>
-              <img src="../images/BCEPart2.png" alt="Binary Cross Entropy Loss Equation">
+              <div class="image-container">
+                <img src="../images/BCEPart2.png" alt="Binary Cross Entropy Loss Equation">
+              </div>
               <p class="intuition-paragraph">
                 These are then summed together to give the cross entropy for that category. We then sum across all of the possible categories and then repeat across the batch and average.
               </p>
