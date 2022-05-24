@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theo Clark</title>
+
+  <!-- Bootstrap Stylesheet link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <!-- Stylesheet link -->
+  <link rel="stylesheet" href="../CSS/bootstrap-edit.css">
+  <link rel="stylesheet" href="../CSS/styles.css">
+
+  <!-- Fontawesome link -->
+  <script src="https://kit.fontawesome.com/00d694336d.js" crossorigin="anonymous"></script>
+
+  <!-- Google fonts link -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MNRQL0TPM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-64QDKCWTBJ');
+  </script>
+
+</head>
+
+<body>
+  <div id=page-container>
+    <div id=content-wrap>
+
+      <!-- Navigation Bar Section -->
+
+      <section class="dark-section" id="Navigation-Bar">
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid px-5">
+            <a class="navbar-brand" href="../index.html">Theo Clark</a>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+                <a class="nav-link active" href="../index.html">Home</a>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+
+      </section>
+
+      <!-- Main Section -->
+
+      <section class="light-section">
+        <div class="post-container">
+          <div class="post-title">
+            <h2>Wasserstein GANs</h2>
+          </div>
+          <div class="post-dateline">
+            <p>24th May 2022</p>
+          </div>
+          <div class="post-body">
+            <div class="text-section">
+              <h5>What are GANs?</h5>
+              <p>
+                Generative Adversarial Networks (GANs) were first proposed in a <a href="https://arxiv.org/abs/1406.2661">paper</a> by Goodfellow et al. in 2014. They are a method for training generative models. They are most commonly used to generate images and, despite an abundance of positive applications, they are also responsible for the majority of <a href="https://en.wikipedia.org/wiki/Deepfake">deepfakes</a>.
+              </p>
+              <p>
+                The basic premise of a GAN is to train two competing models. One model, the generator, is trained to produce a fake image, while the other model, the discriminator, is trained to be able to tell the difference between a real image and a fake one. The generator tries to produce a fake image that is good enough to trick the discriminator into thinking it is a real image. As a result, the discriminator has to get better at telling the difference between the two, which forces the generator to then improve etc.
+              </p>
+              <img id="GAN-diagram" src="../images/GAN_diagram.png" alt="Basic GAN Structure">
+              <p>
+                Once training has taken place, the generator can be used by itself during inference to generate fake images.
+              </p>
+              <p>
+                The training process alternates between training the discriminator and the generator. Each discriminator training step involves maximising the following general equation:
+              </p>
+              <img src="../images/discriminator_update.png" alt="Discriminator Update Step Equation">
+              <p class="source-reference">(Goodfellow et al., 2014)</p>
+              <p>
+                During this step, only the discriminator weights are updated. Then, the generator weights are updated to minimise the following general equation:
+              </p>
+              <img src="../images/generator_update.png" alt="Generator Update Step Equation">
+              <p class="source-reference">(Goodfellow et al., 2014)</p>
+              <p>
+                The ratio between discriminator and generator update steps does not have to be 1:1, indeed in most cases it isn’t. GANs are notoriously difficult to train because they rely on a delicate balancing act between overtraining and undertraining the discriminator in relation to the generator. If the discriminator becomes too good then the generator finds it impossible to beat the discriminator. As a result, gradients tend to drop to zero and the model stops training. If the generator becomes too good then it tends to exploit local minima and will likely always produce the same image.
+              </p>
+              <p>
+                The GAN method is not tied to a particular model architecture, indeed many have been used. However, some recommendations for model architecture were made in <a href="https://arxiv.org/abs/1511.06434">this paper</a> by Radford et al. in 2015 to improve GANs and make them easier to train. These included: using only convolutions and not pooling layers, using ReLU in the generator and leaky ReLU in the discriminator, using batchnorm and not using any linear layers. However, many training difficulties still remained and the WGAN paper was largely an attempt to overcome these training difficulties.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>Wasserstein GANs</h5>
+              <p>
+                Wasserstein GANs (WGANs) were introduced in <a href="https://arxiv.org/abs/1701.07875">this paper</a> by Arjovsky et al. in 2017. They significantly reduced the difficulties associated with training GANs as the training process no longer had to walk a tightrope between over and under training the discriminator because, in a WGAN, the discriminator cannot be over trained.
+              </p>
+              <p>
+                The difference between a WGAN and a GAN is simply the loss function that is used to train both the discriminator and the generator. In most other GANs, Cross Entropy Loss is typically used as a loss function (<a href="./loss-functions-in-pytorch.html">this</a> blog post discusses Cross Entropy Loss amongst other loss functions). When two distributions (target and predicted) are almost entirely separate and do not overlap then the gradients in many places will go to zero or infinity, essentially preventing the model from training. The WGAN paper proposed a new loss function based on the <a href="https://en.wikipedia.org/wiki/Earth_mover%27s_distance">Earth-mover Distance</a>.
+              </p>
+              <p>
+                If two distributions are taken, then the Earth-mover Distance is calculated by working out the minimum cost of turning one distribution into the other. The cost is calculated by multiplying the ‘size’ of the probability by the ‘distance’ it has to move. For example: if the probability that x=1 is 1 in distribution A and the probabilities that x=1 and x=2 are both 0.5 in distribution B then the Earth-mover Distance is 1 x 0.5 = 0.5 because a probability of 0.5 must be moved a distance of 1 to map onto the new distribution.
+              </p>
+              <p>
+                The huge advantage of using this loss function is that it is differentiable everywhere, even if the distributions are completely separate. As a result, a WGAN will continue to train even if the discriminator is over trained.
+              </p>
+              <p>
+                As you can imagine, for two smooth distributions over a multi-dimensional space it becomes an intractable problem to find the minimum cost. As a result, simplifications have to be made. It has been shown that, if the function is Lipschitz continuous, then the loss function can be expressed as follows:
+              </p>
+              <img src="../images/WGAN_update1.png" alt="WGAN Discriminator Update Step">
+              <img src="../images/WGAN_update2.png" alt="WGAN Generator Update Step">
+              <p class="source-reference">(Arjovsky et al., 2017)</p>
+              <p>
+                Lipschitz continuous refers to a function where the magnitude of the gradient at any point on the curve never exceeds a specified integer. Because this cannot be guaranteed it must be enforced. The authors of the WGAN paper proposed ‘gradient clipping’ as a method to enforce this. This involved clipping any gradients that exceeded + or – k, where k is a given integer. This led to the WGAN learning very simplistic functions because the gradients end up concentrated around +/- k. This was improved with the introduction of WGAN-GP.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>Wasserstein GAN Gradient Penalty</h5>
+              <p>
+                Wasserstein GAN with Gradient Penalty (WGAN-GP) was introduced in <a href="https://arxiv.org/abs/1704.00028">this paper</a> by Gulrajani et al. in 2017. The authors exploited another feature of Lipschitz functions: the gradients of the discriminator should have a norm of 1 almost everywhere. Whilst ideally the gradients of all points would have a norm of 1, the authors focused on the series of points lying on a straight line between the predicted and the target value in order to make the solution feasible.
+              </p>
+              <p>
+                WGAN-GP therefore removes gradient clipping entirely and, instead, introduces a gradient penalty factor into the loss function of the discriminator update step:
+              </p>
+              <img src="../images/WGAN-GP_update.png" alt="WGAN-GP Discriminator Update Step">
+              <p class="source-reference">(Gulrajani et al., 2017)</p>
+              <p>
+                A random point is sampled between the predicted and target vectors. The gradient norm of this point is then calculated and encouraged to equal 1.
+              </p>
+            </div>
+            <div class="text-section">
+              <h5>Summary</h5>
+              <p>
+                Wasserstein GANs, in particular with Gradient Penalty, have led to much more stable training procedures for GANs. GANs still take a long time to converge, a reflection of the fact that image generation and other similar tasks are simply very difficult tasks to learn, but at least models are able to train more reliably and not get stuck.
+              </p>
+              <p>
+                To see a WGAN-GP model implemented in PyTorch and check out the code, head over to my <a href="https://github.com/theoclark/MNIST-PyTorch-WGAN-GP">Github page</a> where I built a simple WGAN-GP model to create MNIST digits.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Footer Section -->
+
+    <section>
+      <div id="Footer" class="dark-section" class="narrow-container">
+
+        <a class="footer-link" target="_blank" href="https://twitter.com/theo_clark_"><i class="footer-icon fab fa-twitter"></i></a>
+        <a class="footer-link" target="_blank" href="https://github.com/theoclark"><i class="footer-icon fab fa-github"></i></a>
+        <a class="footer-link" target="_blank" href="https://www.linkedin.com/in/theoclark1/"><i class="footer-icon fab fa-linkedin"></i></a>
+        <a class="footer-link" target="_blank" href="mailto:theoclark101@gmail.com"><i class="footer-icon fas fa-envelope"></i></a>
+        <p class="copyright">© Copyright 2022 Theo Clark</p>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Bootstrap Javascript Link -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+</body>

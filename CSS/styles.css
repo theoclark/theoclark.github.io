@@ -88,6 +88,7 @@ table, th, td {
 }
 
 /* Sections */
+
 .light-section {
   background-color: #fafafa;
   color: #005691;
@@ -99,6 +100,7 @@ table, th, td {
 }
 
 /* Divider */
+
 .divider {
   border-style: dotted none none;
   height: 0;
@@ -110,7 +112,8 @@ table, th, td {
   color: #fafafa;
 }
 
-/* SECTION STYLING */
+/* Main Section */
+
 #page-container {
   position: relative;
   min-height: 100vh;
@@ -120,12 +123,12 @@ table, th, td {
   padding-bottom: 75px;
 }
 
-/* Navigation Bar Section */
-
-/* Main Section */
-
 .post-container {
   margin: 25px 7%
+}
+
+.text-section {
+  margin-bottom: 50px
 }
 
 .post-title {
@@ -142,28 +145,7 @@ table, th, td {
   color: black
 }
 
-.post-link{
-  text-decoration: none
-}
-
-.post-link:link {
-  color: black;
-}
-
-/* visited link */
-.post-link:visited {
-  color: brown;
-}
-
-/* mouse over link */
-.post-link:hover {
-  color: gray;
-}
-
-/* selected link */
-.post-link:active {
-  color: gray;
-}
+/* Specific Sections */
 
 .intuition-paragraph {
   margin-left: 5%;
@@ -174,8 +156,10 @@ table, th, td {
   display: flex;
 }
 
-.text-section {
-  margin-bottom: 50px
+.source-reference {
+  text-align: right;
+  font-style: italic;
+  color: gray;
 }
 
 .table-container {
@@ -184,11 +168,38 @@ table, th, td {
   align-items: center;
 }
 
+/* Links */
+
+.post-link{
+  text-decoration: none
+}
+
+.post-link:link {
+  color: black;
+}
+
+.post-link:visited {
+  color: brown;
+}
+
+.post-link:hover {
+  color: gray;
+}
+
+.post-link:active {
+  color: gray;
+}
+
+/* Page Specific Styles */
 
 #dog-photo {
   width: 75%;
   height: auto;
   margin-top: 0px
+}
+
+#GAN-diagram {
+  max-width: 500px
 }
 
 /* Footer Section */
