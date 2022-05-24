@@ -149,7 +149,7 @@ table, th, td {
 
 .intuition-paragraph {
   margin-left: 5%;
-  color: gray
+  color: gray;
 }
 
 .image-box {
@@ -160,6 +160,18 @@ table, th, td {
   text-align: right;
   font-style: italic;
   color: gray;
+  margin-bottom: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 12px;
+}
+
+.equation-description {
+  color: gray;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 12px;
+  line-height: 120%;
 }
 
 .table-container {

@@ -85,11 +85,17 @@
               </p>
               <img src="../images/discriminator_update.png" alt="Discriminator Update Step Equation">
               <p class="source-reference">(Goodfellow et al., 2014)</p>
+              <p class="equation-description">
+                The discriminator (D) is passed both a real image (x) and a fake image G(Z), where G is the generator which has been passed a random noise input (z). The discriminator's parameters are updated to maximise this function, thereby improving the ability of the discriminator.
+              </p>
               <p>
                 During this step, only the discriminator weights are updated. Then, the generator weights are updated to minimise the following general equation:
               </p>
               <img src="../images/generator_update.png" alt="Generator Update Step Equation">
               <p class="source-reference">(Goodfellow et al., 2014)</p>
+              <p class="equation-description">
+                The discriminator (D) is once again passed the fake image from the generator (G) following a random noise input (z). In this case it is the generator parameters which are updated to minimise the loss rather than maximise it, hence improving the generator's capabilities.
+              </p>
               <p>
                 The ratio between discriminator and generator update steps does not have to be 1:1, indeed in most cases it isn’t. GANs are notoriously difficult to train because they rely on a delicate balancing act between overtraining and undertraining the discriminator in relation to the generator. If the discriminator becomes too good then the generator finds it impossible to beat the discriminator. As a result, gradients tend to drop to zero and the model stops training. If the generator becomes too good then it tends to exploit local minima and will likely always produce the same image.
               </p>
@@ -117,6 +123,9 @@
               <img src="../images/WGAN_update1.png" alt="WGAN Discriminator Update Step">
               <img src="../images/WGAN_update2.png" alt="WGAN Generator Update Step">
               <p class="source-reference">(Arjovsky et al., 2017)</p>
+              <p class="equation-description">
+                The first equation is the discriminator (f) update step. Just as with a regular GAN, the discriminator is fed both a real image (x) and a fake image from the generator (g), which is given a random noise input (z). The second step updates the generator weights as before. Apart from the removal of the logs, there is really very little difference between the update step in a GAN and WGAN.
+              </p>
               <p>
                 Lipschitz continuous refers to a function where the magnitude of the gradient at any point on the curve never exceeds a specified integer. Because this cannot be guaranteed it must be enforced. The authors of the WGAN paper proposed ‘gradient clipping’ as a method to enforce this. This involved clipping any gradients that exceeded + or – k, where k is a given integer. This led to the WGAN learning very simplistic functions because the gradients end up concentrated around +/- k. This was improved with the introduction of WGAN-GP.
               </p>
@@ -131,6 +140,9 @@
               </p>
               <img src="../images/WGAN-GP_update.png" alt="WGAN-GP Discriminator Update Step">
               <p class="source-reference">(Gulrajani et al., 2017)</p>
+              <p class="equation-description">
+                The first half of the equation is the same as in the regular WGAN (although the expression is simplified here). The discriminator (D) is passed the real image (x-tilde) and then the fake image (x) as before. The final part is the gradient penalty. The discriminator is passed a random point along the line between the real and fake image (x-hat) and the gradient norm is calculated. This is then directed towards 1. The recommended value for the gradient penalty coefficient (lambda) is 10 in the original paper.
+              </p>
               <p>
                 A random point is sampled between the predicted and target vectors. The gradient norm of this point is then calculated and encouraged to equal 1.
               </p>
