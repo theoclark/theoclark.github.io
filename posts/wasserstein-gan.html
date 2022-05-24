@@ -71,7 +71,7 @@
             <div class="text-section">
               <h5>What are GANs?</h5>
               <p>
-                Generative Adversarial Networks (GANs) were first proposed in a <a href="https://arxiv.org/abs/1406.2661">paper</a> by Goodfellow et al. in 2014. They are a method for training generative models. They are most commonly used to generate images and, despite an abundance of positive applications, they are also responsible for the majority of <a href="https://en.wikipedia.org/wiki/Deepfake">deepfakes</a>.
+                Generative Adversarial Networks (GANs) were first proposed in a <a href="https://arxiv.org/abs/1406.2661" target="_blank">paper</a> by Goodfellow et al. in 2014. They are a method for training generative models. They are most commonly used to generate images and, despite an abundance of positive applications, they are also responsible for the majority of <a href="https://en.wikipedia.org/wiki/Deepfake" target="_blank">deepfakes</a>.
               </p>
               <p>
                 The basic premise of a GAN is to train two competing models. One model, the generator, is trained to produce a fake image, while the other model, the discriminator, is trained to be able to tell the difference between a real image and a fake one. The generator tries to produce a fake image that is good enough to trick the discriminator into thinking it is a real image. As a result, the discriminator has to get better at telling the difference between the two, which forces the generator to then improve etc.
@@ -94,16 +94,16 @@
                 The ratio between discriminator and generator update steps does not have to be 1:1, indeed in most cases it isn’t. GANs are notoriously difficult to train because they rely on a delicate balancing act between overtraining and undertraining the discriminator in relation to the generator. If the discriminator becomes too good then the generator finds it impossible to beat the discriminator. As a result, gradients tend to drop to zero and the model stops training. If the generator becomes too good then it tends to exploit local minima and will likely always produce the same image.
               </p>
               <p>
-                The GAN method is not tied to a particular model architecture, indeed many have been used. However, some recommendations for model architecture were made in <a href="https://arxiv.org/abs/1511.06434">this paper</a> by Radford et al. in 2015 to improve GANs and make them easier to train. These included: using only convolutions and not pooling layers, using ReLU in the generator and leaky ReLU in the discriminator, using batchnorm and not using any linear layers. However, many training difficulties still remained and the WGAN paper was largely an attempt to overcome these training difficulties.
+                The GAN method is not tied to a particular model architecture, indeed many have been used. However, some recommendations for model architecture were made in <a href="https://arxiv.org/abs/1511.06434" target="_blank">this paper</a> by Radford et al. in 2015 to improve GANs and make them easier to train. These included: using only convolutions and not pooling layers, using ReLU in the generator and leaky ReLU in the discriminator, using batchnorm and not using any linear layers. However, many training difficulties still remained and the WGAN paper was largely an attempt to overcome these training difficulties.
               </p>
             </div>
             <div class="text-section">
               <h5>Wasserstein GANs</h5>
               <p>
-                Wasserstein GANs (WGANs) were introduced in <a href="https://arxiv.org/abs/1701.07875">this paper</a> by Arjovsky et al. in 2017. They significantly reduced the difficulties associated with training GANs as the training process no longer had to walk a tightrope between over and under training the discriminator because, in a WGAN, the discriminator cannot be over trained.
+                Wasserstein GANs (WGANs) were introduced in <a href="https://arxiv.org/abs/1701.07875" target="_blank">this paper</a> by Arjovsky et al. in 2017. They significantly reduced the difficulties associated with training GANs as the training process no longer had to walk a tightrope between over and under training the discriminator because, in a WGAN, the discriminator cannot be over trained.
               </p>
               <p>
-                The difference between a WGAN and a GAN is simply the loss function that is used to train both the discriminator and the generator. In most other GANs, Cross Entropy Loss is typically used as a loss function (<a href="./loss-functions-in-pytorch.html">this</a> blog post discusses Cross Entropy Loss amongst other loss functions). When two distributions (target and predicted) are almost entirely separate and do not overlap then the gradients in many places will go to zero or infinity, essentially preventing the model from training. The WGAN paper proposed a new loss function based on the <a href="https://en.wikipedia.org/wiki/Earth_mover%27s_distance">Earth-mover Distance</a>.
+                The difference between a WGAN and a GAN is simply the loss function that is used to train both the discriminator and the generator. In most other GANs, Cross Entropy Loss is typically used as a loss function (<a href="./loss-functions-in-pytorch.html" target="_blank">this</a> blog post discusses Cross Entropy Loss amongst other loss functions). When two distributions (target and predicted) are almost entirely separate and do not overlap then the gradients in many places will go to zero or infinity, essentially preventing the model from training. The WGAN paper proposed a new loss function based on the <a href="https://en.wikipedia.org/wiki/Earth_mover%27s_distance" target="_blank">Earth-mover Distance</a>.
               </p>
               <p>
                 If two distributions are taken, then the Earth-mover Distance is calculated by working out the minimum cost of turning one distribution into the other. The cost is calculated by multiplying the ‘size’ of the probability by the ‘distance’ it has to move. For example: if the probability that x=1 is 1 in distribution A and the probabilities that x=1 and x=2 are both 0.5 in distribution B then the Earth-mover Distance is 1 x 0.5 = 0.5 because a probability of 0.5 must be moved a distance of 1 to map onto the new distribution.
@@ -124,7 +124,7 @@
             <div class="text-section">
               <h5>Wasserstein GAN Gradient Penalty</h5>
               <p>
-                Wasserstein GAN with Gradient Penalty (WGAN-GP) was introduced in <a href="https://arxiv.org/abs/1704.00028">this paper</a> by Gulrajani et al. in 2017. The authors exploited another feature of Lipschitz functions: the gradients of the discriminator should have a norm of 1 almost everywhere. Whilst ideally the gradients of all points would have a norm of 1, the authors focused on the series of points lying on a straight line between the predicted and the target value in order to make the solution feasible.
+                Wasserstein GAN with Gradient Penalty (WGAN-GP) was introduced in <a href="https://arxiv.org/abs/1704.00028" target="_blank">this paper</a> by Gulrajani et al. in 2017. The authors exploited another feature of Lipschitz functions: the gradients of the discriminator should have a norm of 1 almost everywhere. Whilst ideally the gradients of all points would have a norm of 1, the authors focused on the series of points lying on a straight line between the predicted and the target value in order to make the solution feasible.
               </p>
               <p>
                 WGAN-GP therefore removes gradient clipping entirely and, instead, introduces a gradient penalty factor into the loss function of the discriminator update step:
@@ -141,7 +141,7 @@
                 Wasserstein GANs, in particular with Gradient Penalty, have led to much more stable training procedures for GANs. GANs still take a long time to converge, a reflection of the fact that image generation and other similar tasks are simply very difficult tasks to learn, but at least models are able to train more reliably and not get stuck.
               </p>
               <p>
-                To see a WGAN-GP model implemented in PyTorch and check out the code, head over to my <a href="https://github.com/theoclark/MNIST-PyTorch-WGAN-GP">Github page</a> where I built a simple WGAN-GP model to create MNIST digits.
+                To see a WGAN-GP model implemented in PyTorch and check out the code, head over to my <a href="https://github.com/theoclark/MNIST-PyTorch-WGAN-GP" target="_blank">Github page</a> where I built a simple WGAN-GP model to create MNIST digits.
               </p>
             </div>
           </div>
