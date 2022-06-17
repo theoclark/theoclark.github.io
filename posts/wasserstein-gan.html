@@ -76,7 +76,9 @@
               <p>
                 The basic premise of a GAN is to train two competing models. One model, the generator, is trained to produce a fake image, while the other model, the discriminator, is trained to be able to tell the difference between a real image and a fake one. The generator tries to produce a fake image that is good enough to trick the discriminator into thinking it is a real image. As a result, the discriminator has to get better at telling the difference between the two, which forces the generator to then improve etc.
               </p>
-              <img id="GAN-diagram" src="../images/GAN_diagram.png" alt="Basic GAN Structure">
+              <div class="image-container">
+                <img id="GAN-diagram" src="../images/GAN_diagram.png" alt="Basic GAN Structure">              
+              </div>
               <p>
                 Once training has taken place, the generator can be used by itself during inference to generate fake images.
               </p>

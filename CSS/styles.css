@@ -205,7 +205,7 @@ table, th, td {
   color: gray;
 }
 
-/* Page Specific Styles */
+/* Image Specific Styles */
 
 #dog-photo {
   width: 75%;
@@ -215,6 +215,14 @@ table, th, td {
 
 #GAN-diagram {
   max-width: 500px
+}
+
+#CycleGAN-diagram {
+  max-width: 1000px
+}
+
+#sample-images {
+  max-width: 1000px
 }
 
 /* Footer Section */
