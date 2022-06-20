@@ -70,7 +70,7 @@
           <div class="post-body">
             <div class="text-section">
               <p>
-                Have you ever wanted to know how Monet would paint the landscape in front of you? Sadly, he’s not around to paint it anymore but Machine Learning can give us an idea of what he might have produced. To see the finished product and try converting your own images, head over <a href="http://monet.theoclark.co.uk/" target="_blank">here</a>.
+                Have you ever wanted to know how Monet would paint the landscape in front of you? Sadly, he’s not around to paint it anymore but Machine Learning can give us an idea of what he might have produced. To see the finished product and try converting your own images, head <a href="http://monet.theoclark.co.uk/">here</a>.
               </p>
               <p>
                 Image-to-image translation has seen remarkable progress in recent years. Image translation involves producing a mapping network to convert an image from one style to another. However, most efforts have focused on datasets where paired images are available. <a href="https://arxiv.org/abs/1703.10593" target="_blank">CycleGAN</a> (Zhu et al. 2020) represents a big shift forward in terms of unpaired image-to-image translation.
@@ -132,7 +132,7 @@
                 <img id="sample-images" src="../images/SampleImages.png" alt="Sample Images">
               </div>
               <p>
-                To try it out with your own images, head over to <a href="http://monet.theoclark.co.uk/" target="_blank">here</a>.
+                To try it out with your own images, head <a href="http://monet.theoclark.co.uk/">here</a>.
               </p>
               <p>
                 This implementation follows the model used in the original CycleGAN paper as closely as possible. The use of an image buffer greatly improved training stability. During every batch a random generated image is added to the buffer and the oldest image removed. A random sample from the image buffer is fed to the discriminator on each occasion.
