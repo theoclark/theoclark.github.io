@@ -21,6 +21,10 @@ img {
   margin: 20px auto 20px;
 }
 
+code {
+    padding: 0
+}
+
 pre {
     background: #f4f4f4;
     border: 1px solid #ddd;
@@ -33,7 +37,7 @@ pre {
     margin-bottom: 1.6em;
     max-width: 100%;
     overflow: auto;
-    padding: 0.5em 1.5em;
+    padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
 }
