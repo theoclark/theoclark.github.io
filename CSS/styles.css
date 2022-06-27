@@ -60,6 +60,10 @@ table, th, td {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+.italics {
+  font-style: italic;
+}
+
 /* Headings */
 .small-heading {
   font-size: 1.5rem;
