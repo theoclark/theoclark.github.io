@@ -59,84 +59,102 @@
 
       <!-- Main Section -->
       <section class="light-section">
-        <div class="container-md">
-          <div class="post-title">
-            <h2>Welcome</h2>
-          </div>
-          <div class="post-body">
-            <p>
-              Welcome to my blog.  I’m interested in Machine Learning and you can see recent projects I’ve been working on below. To see the code and experiment with them yourself then head to my <a href="https://github.com/theoclark">GitHub profile</a>. If anything interests you and you’d like to reach out then please contact me using the links at the bottom of the page. Happy reading.
-            </p>
-          </div>
+        <div class="post-title">
+          <h2>About</h2>
         </div>
-
-      </section>
-      <section class="light-section">
         <div class="container-md">
           <div class="row">
-            <div class="col-lg-6">
-              <h5><a class="title-link" href="posts/sign-language.html">Sign Language interpreter</a></h5>
-              <img class="img-fluid" src="./images/sign-language-example.gif" alt="Sign Language Example GIF">
-              <p class="post-body">
-                An app to read the American Sign Language alphabet. Built using a simple ConvNet in PyTorch. Trained on a new dataset (available below) designed to increase the variability of images. Clone or Download the repo to explore the app yourself.
-                <br>
-                <a href="posts/sign-language.html">Read the post</a> | <a href="https://github.com/theoclark/sign-language">Visit the repo</a> | <a href="https://drive.google.com/file/d/1I35bpJ4ck3nDT1SzEs-6DqmJR7CtcA3Q/view">Download dataset</a>
-              </p>
+            <div class="col-lg-3 align-self-center">
+              <img class="profile-pic" src="./images/profile.png" alt="Profile Picture">
             </div>
-            <div class="col-lg-6">
-              <h5><a class="title-link" href="posts/cycle-gan.html">CycleGAN: paint like Monet</a></h5>
-              <img class="img-fluid" src="./images/SampleImages.png" alt="">
-              <p class="post-body">
-                App to convert landscape photos into Monet style paintings using an implementation of CycleGAN in PyTorch. Have a go at converting your own landscape image to Monet-style paintings using an app I built using Heroku and Flask.
-                <br>
-                <a href="posts/cycle-gan.html">Read the post</a> | <a href="https://github.com/theoclark/Monet-PyTorch-CycleGAN">Visit the repo</a> | <a href="http://monet.theoclark.co.uk/">Try it out</a>
-              </p>
-            </div>
-            <div class="col-lg-6">
-              <h5><a class="title-link" href="posts/wasserstein-gan.html">Wasserstein GANs: create handwritten digits</a></h5>
-              <img class="img-fluid" src="./images/generated_digits.png" alt="">
-              <p class="post-body">
-                Model to generate handwritten digits. The PyTorch model is trained on MNIST and is based on a Wasserstein General Adversarial Network with Gradient Penalty (WGAN-GP). Clone or Download the repository to generate your own handwritten digits.
-                <br>
-                <a href="posts/wasserstein-gan.html">Read the post</a> | <a href="https://github.com/theoclark/MNIST-PyTorch-WGAN-GP">Visit the repo</a>
-              </p>
-            </div>
-            <div class="col-lg">
-              <h5>Other Posts</h5>
-              <div class="">
-                <a href="posts/getting-started-with-ML.html">How to get started with Machine Learning</a>
-              </div>
-              <div class="">
-                <a href="posts/loss-functions-in-pytorch.html">Loss Functions in PyTorch</a>
-              <p>
-
-              </p>
+            <div class="col-lg-9">
+              <div class="post-body">
+                <p>
+                  Welcome! I’m Theo Clark and I'm just starting out on a career
+                  in Machine Learning. I have taught myself over the past few years
+                  alongside working as a Physics teacher. There is a huge wealth of
+                  information out there to help anyone in a similar position get
+                  started. However, knowing where to begin can be an issue. Check out my
+                  post on <a href="posts/getting-started-with-ML.html">getting started</a>
+                  if it's relevant to you.
+                </p>
+                <p>
+                  You can see recent projects I’ve been working on below. My current working
+                  has focused mainly on computer vision (i.e. image tasks) and in particular
+                  General Adversarial Networks (GANs).
+                  To see the code and experiment with them yourself then head to
+                  my <a href="https://github.com/theoclark">GitHub profile</a>.
+                  If anything interests you and you’d like to reach out then please
+                  contact me using the links at the bottom of the page. Happy reading.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- <section class="light-section">
-        <div class="list-group">
-          <label class="post-box list-group-item py-3">
-            <a class="post-link" href="posts/sign-language.html">Sign Language interpreter</a>
-          </label>
-          <label class="post-box list-group-item py-3">
-            <a class="post-link" href="posts/cycle-gan.html">CycleGAN: paint like Monet</a>
-          </label>
-          <label class="post-box list-group-item py-3">
-            <a class="post-link" href="posts/wasserstein-gan.html">Wasserstein GANs: create handwritten digits</a>
-          </label>
-          <label class="post-box list-group-item py-3">
-            <a class="post-link" href="posts/getting-started-with-ML.html">How to get started with Machine Learning</a>
-          </label>
-          <label class="post-box list-group-item py-3">
-            <a class="post-link" href="posts/loss-functions-in-pytorch.html">Loss Functions in PyTorch</a>
-          </label>
+      <section class="light-section">
+        <h2>Portfolio</h2>
+        <div class="container-md">
+          <div class="row">
+            <div class="col-lg-6 card-custom">
+              <div class="card h-100" >
+                <h5 class="card-title"><a class="title-link" href="posts/sign-language.html">Sign Language interpreter</a></h5>
+                <img src="./images/sign-language-example.gif" class="card-img-top card-image-custom" alt="Sign Language Example GIF">
+                <div class="card-body">
+                  <p class="post-body">
+                    An app to read the American Sign Language alphabet. Built using a simple ConvNet in PyTorch. Trained on a new dataset (available below) designed to increase the variability of images. Clone or Download the repo to explore the app yourself.
+                    <br>
+                    <br>
+                    <a href="posts/sign-language.html">Read the post</a> | <a href="https://github.com/theoclark/sign-language">Visit the repo</a> | <a href="https://drive.google.com/file/d/1I35bpJ4ck3nDT1SzEs-6DqmJR7CtcA3Q/view">Download dataset</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 card-custom">
+              <div class="card h-100" >
+                <h5 class="card-title"><a class="title-link" href="posts/cycle-gan.html">CycleGAN: paint like Monet</a></h5>
+                <img src="./images/SampleImages.png" class="card-img-top card-image-custom" alt="Sign Language Example GIF">
+                <div class="card-body">
+                  <p class="post-body">
+                    App to convert landscape photos into Monet style paintings using an implementation of CycleGAN in PyTorch. Have a go at converting your own landscape image to Monet-style paintings using an app I built using Heroku and Flask.
+                    <br>
+                    <br>
+                    <a href="posts/cycle-gan.html">Read the post</a> | <a href="https://github.com/theoclark/Monet-PyTorch-CycleGAN">Visit the repo</a> | <a href="http://monet.theoclark.co.uk/">Try it out</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 card-custom">
+              <div class="card h-100" >
+                <h5 class="card-title"><a class="title-link" href="posts/wasserstein-gan.html">Wasserstein GANs: create handwritten digits</a></h5>
+                <img src="./images/generated_digits.png" id="digits-sample" class="card-img-top card-image-custom" alt="Sign Language Example GIF">
+                <div class="card-body">
+                  <p class="post-body">
+                    Model to generate handwritten digits. The PyTorch model is trained on MNIST and is based on a Wasserstein General Adversarial Network with Gradient Penalty (WGAN-GP). Clone or Download the repository to generate your own handwritten digits.
+                    <br>
+                    <br>
+                    <a href="posts/wasserstein-gan.html">Read the post</a> | <a href="https://github.com/theoclark/MNIST-PyTorch-WGAN-GP">Visit the repo</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 card-custom">
+              <div class="card h-100" >
+                <h5 class="card-title">Other Posts</h5>
+                <div class="card-body">
+                  <p class="post-body">
+                    New to Machine Learning and wondering how to get started? For an overview of the important theoretical ideas and an introduction to writing ML code read <a href="posts/getting-started-with-ML.html">how to get started with Machine Learning</a>. There are lots of additional links provided to take you further.
+                  </p>
+                  <p class="post-body">
+                    Wondering which loss function to use? Not sure how to use a loss function in PyTorch? <a href="posts/loss-functions-in-pytorch.html">Loss Functions in PyTorch</a> is here to help you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section> -->
-
+      </section>
     </div>
 
     <!-- Footer Section -->
