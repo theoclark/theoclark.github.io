@@ -102,15 +102,13 @@
               <p>
                 In order to use the model in practice download or fork the <a href="https://github.com/theoclark/sign-language" target="_blank">GitHub repo</a>, navigate into it and run:
               </p>
-              <pre><code>
-              pip install -r requirements.txt
-              </code></pre>
+              <pre>
+              <code>pip install -r requirements.txt</code></pre>
               <p>
                 This will install all necessary libraries (OpenCV, torch and torchvision). Then run:
               </p>
-              <pre><code>
-              python app.py
-              </code></pre>
+              <pre>
+              <code>python app.py</code></pre>
               <p>
                 As mentioned, the model works best against a blank background and the hand must be kept within the box, which is the part of the frame that is cropped and forms the input to the model.
               </p>
@@ -123,13 +121,12 @@
               <p>
                 A combination of a past prediction buffer and a threshold value are used to improve performance. The predictions from the preceding images are kept in the buffer and, for each inference, the mean predictions are taken. If the maximum value is above the threshold value then the letter represented by that index is returned. The buffer size is set to 30 (1 second’s worth of images at 30fps) and the threshold is set at 0.3. This combination was found to work well but can be adjusted easily in the code.
               </p>
-              <pre><code>
-              import cv2
+              <pre>
+              <code>import cv2
               cap = cv2.VideoCapture(0)
               if not cap.isOpened():
                   raise IOError("Cannot open webcam")
-              ret, frame = cap.read()
-              </code></pre>
+              ret, frame = cap.read()</code></pre>
               <p class="italics">
                 Access the video stream and return the current frame
               </p>
@@ -141,26 +138,23 @@
               <p class="italics">
                 Set variables. Input and output x/y refer to the top left coordinates of the input and output area.
               </p>
-              <pre><code>
-              frame[:,output_y:output_y+frame_size,output_x:output_x+frame_size,:] = 0
-              </code></pre>
+              <pre>
+              <code>frame[:,output_y:output_y+frame_size,output_x:output_x+frame_size,:] = 0</code></pre>
               <p class="italics">
                 Blacken the part of the frame for the output.
               </p>
-              <pre><code>
-              rgb = (255,255,255)
+              <pre>
+              <code>rgb = (255,255,255)
               label_font = cv2.FONT_HERSHEY_SIMPLEX
               frame = cv2.putText(frame, pred, (output_x+100, output_y+frame_size-100), label_font, 8, rgb, 10)
               frame = cv2.rectangle(frame,(input_x, input_y), (input_x+frame_size, input_y+frame_size), white, 2)
-              frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
-              </code></pre>
+              frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)</code></pre>
               <p class="italics">
                 Place the output text and a box around the input area over the frame
               </p>
-              <pre><code>
-              cv2.imshow('Input', frame)
-              c = cv2.waitKey(1)
-              </code></pre>
+              <pre>
+              <code>cv2.imshow('Input', frame)
+              c = cv2.waitKey(1)</code></pre>
               <p class="italics">
                 Show the image. waitKey(1) displays the image for at least 1ms, allowing time for the next image to be shown.
               </p>
