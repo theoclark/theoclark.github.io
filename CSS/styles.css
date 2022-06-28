@@ -98,8 +98,6 @@ table, th, td {
 .light-section {
   background-color: #fafafa;
   color: #005691;
-  padding-top: 2rem;
-  /* padding-bottom: 2rem; */
 }
 
 .dark-section {
@@ -129,6 +127,10 @@ table, th, td {
 
 #content-wrap {
   padding-bottom: 75px;
+}
+
+.top-section {
+  margin-top: 50px;
 }
 
 .post-description {
