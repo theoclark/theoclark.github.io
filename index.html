@@ -59,24 +59,65 @@
 
       <!-- Main Section -->
       <section class="light-section">
-        <div class="post-container">
+        <div class="container-md">
           <div class="post-title">
             <h2>Welcome</h2>
           </div>
           <div class="post-body">
             <p>
-              Hi, my name is Theo. I’m a former high school Physics teacher embarking on a career in Machine Learning. It’s a daunting field to break into: filled with super smart and highly motivated people, progress happens at a lightning pace and there are so many frameworks, concepts and models that it can quickly become overwhelming. Yet, I’ve loved every minute of it so far. There’s something so exciting about being part of a field which is really pushing the boundaries of what is possible and driving technology forward every day. Whilst we have to be careful about the risks and limitations of Machine Learning and Artificial Intelligence in general, the models that have been built are already so capable and impressive that they frequently blow my mind.
-            </p>
-            <p>
-              As I wade into this field, I’ll try to post here semi-frequently about interesting topics and concepts and any projects I’ve been working on. If anything interests you and you’d like to reach out then I’d love to hear from you. Feel free to contact me using any of the links at the bottom of the page. Happy reading.
+              Welcome to my blog.  I’m interested in Machine Learning and you can see recent projects I’ve been working on below. To see the code and experiment with them yourself then head to my <a href="https://github.com/theoclark">GitHub profile</a>. If anything interests you and you’d like to reach out then please contact me using the links at the bottom of the page. Happy reading.
             </p>
           </div>
         </div>
 
       </section>
-
-
       <section class="light-section">
+        <div class="container-md">
+          <div class="row">
+            <div class="col-lg-6">
+              <h5><a class="title-link" href="posts/sign-language.html">Sign Language interpreter</a></h5>
+              <img class="img-fluid" src="./images/sign-language-example.gif" alt="Sign Language Example GIF">
+              <p class="post-body">
+                An app to read the American Sign Language alphabet. Built using a simple ConvNet in PyTorch. Trained on a new dataset (available below) designed to increase the variability of images. Clone or Download the repo to explore the app yourself.
+                <br>
+                <a href="posts/sign-language.html">Read the post</a> | <a href="https://github.com/theoclark/sign-language">Visit the repo</a> | <a href="https://drive.google.com/file/d/1I35bpJ4ck3nDT1SzEs-6DqmJR7CtcA3Q/view">Download dataset</a>
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <h5><a class="title-link" href="posts/cycle-gan.html">CycleGAN: paint like Monet</a></h5>
+              <img class="img-fluid" src="./images/SampleImages.png" alt="">
+              <p class="post-body">
+                App to convert landscape photos into Monet style paintings using an implementation of CycleGAN in PyTorch. Have a go at converting your own landscape image to Monet-style paintings using an app I built using Heroku and Flask.
+                <br>
+                <a href="posts/cycle-gan.html">Read the post</a> | <a href="https://github.com/theoclark/Monet-PyTorch-CycleGAN">Visit the repo</a> | <a href="http://monet.theoclark.co.uk/">Try it out</a>
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <h5><a class="title-link" href="posts/wasserstein-gan.html">Wasserstein GANs: create handwritten digits</a></h5>
+              <img class="img-fluid" src="./images/generated_digits.png" alt="">
+              <p class="post-body">
+                Model to generate handwritten digits. The PyTorch model is trained on MNIST and is based on a Wasserstein General Adversarial Network with Gradient Penalty (WGAN-GP). Clone or Download the repository to generate your own handwritten digits.
+                <br>
+                <a href="posts/wasserstein-gan.html">Read the post</a> | <a href="https://github.com/theoclark/MNIST-PyTorch-WGAN-GP">Visit the repo</a>
+              </p>
+            </div>
+            <div class="col-lg">
+              <h5>Other Posts</h5>
+              <div class="">
+                <a href="posts/getting-started-with-ML.html">How to get started with Machine Learning</a>
+              </div>
+              <div class="">
+                <a href="posts/loss-functions-in-pytorch.html">Loss Functions in PyTorch</a>
+              <p>
+
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="light-section">
         <div class="list-group">
           <label class="post-box list-group-item py-3">
             <a class="post-link" href="posts/sign-language.html">Sign Language interpreter</a>
@@ -94,7 +135,7 @@
             <a class="post-link" href="posts/loss-functions-in-pytorch.html">Loss Functions in PyTorch</a>
           </label>
         </div>
-      </section>
+      </section> -->
 
     </div>
 
