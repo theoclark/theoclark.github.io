@@ -161,8 +161,12 @@ table, th, td {
     object-fit: cover;
 }
 
+.main-container {
+  margin: 0px 10%
+}
+
 .post-container {
-  margin: 25px 7%
+  margin: 25px 10%
 }
 
 .text-section {
