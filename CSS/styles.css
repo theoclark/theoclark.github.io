@@ -279,6 +279,22 @@ table, th, td {
   max-width: 500px
 }
 
+#batch-norm {
+  max-width: 500px
+}
+
+#backward-pass {
+  max-width: 800px
+}
+
+#update-step {
+  max-width: 300px
+}
+
+#model-gradients {
+  max-width: 500px
+}
+
 /* Footer Section */
 
 #Footer {
