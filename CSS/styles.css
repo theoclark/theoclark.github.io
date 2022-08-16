@@ -70,6 +70,11 @@ table, th, td {
 }
 
 /* Headings */
+
+.title {
+  text-align: left;
+}
+
 .small-heading {
   font-size: 1.5rem;
   line-height: 2rem;
