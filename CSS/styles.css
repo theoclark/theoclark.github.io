@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 
 h1, h2, h3, h4, h5 {
@@ -16,6 +16,14 @@ p, li {
   line-height: 1.5rem;
 }
 
+a {
+  color: #474747;
+}
+
+a:hover {
+  color: #8c8c8c;
+}
+
 img {
   display: block;
   margin: 20px auto 20px;
@@ -26,10 +34,10 @@ code {
 }
 
 pre {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-left: 3px solid #004a7c;
-    color: #666;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-left: 3px solid #282828;
+    color: #646464;
     page-break-inside: avoid;
     font-family: monospace;
     font-size: 15px;
@@ -71,10 +79,6 @@ table, th, td {
 
 /* Headings */
 
-.title {
-  text-align: left;
-}
-
 .small-heading {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -101,13 +105,13 @@ table, th, td {
 /* Sections */
 
 .light-section {
-  background-color: #fafafa;
-  color: #005691;
+  background-color: #ffffff;
+  color: #383838;
 }
 
 .dark-section {
-  background-color: #004a7c;
-  color: #e8f1f5;
+  background-color: #383838;
+  color: #8c8c8c;
 }
 
 /* Divider */
@@ -118,9 +122,9 @@ table, th, td {
   width: 20%;
   border-width: 10px;
   margin: 10px auto;
-  border-color: #e8f1f5;
+  border-color: #ffffff;
   opacity: 1;
-  color: #fafafa;
+  color: #ffffff;
 }
 
 /* Main Section */
@@ -156,8 +160,13 @@ table, th, td {
 }
 
 .profile-pic {
-  width: 200px;
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 8/9;
+  object-fit: cover;
   border-radius: 50%;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .card-image-custom {
@@ -167,7 +176,7 @@ table, th, td {
 }
 
 .main-container {
-  margin: 0px 10%
+  margin: 0px 15%
 }
 
 .post-container {
@@ -196,7 +205,7 @@ table, th, td {
 
 .intuition-paragraph {
   margin-left: 5%;
-  color: gray;
+  color: #8c8c8c;
 }
 
 .image-box {
@@ -206,7 +215,7 @@ table, th, td {
 .source-reference {
   text-align: right;
   font-style: italic;
-  color: gray;
+  color: #8c8c8c;
   margin-bottom: 0;
   padding-left: 5%;
   padding-right: 5%;
@@ -220,7 +229,7 @@ table, th, td {
 }
 
 .equation-description {
-  color: gray;
+  color: #8c8c8c;
   padding-left: 5%;
   padding-right: 5%;
   font-size: 12px;
@@ -228,7 +237,7 @@ table, th, td {
 }
 
 .image-description {
-  color: gray;
+  color: #8c8c8c;
   padding-left: 5%;
   padding-right: 5%;
   font-size: 12px;
@@ -249,19 +258,19 @@ table, th, td {
 }
 
 .post-link:link {
-  color: black;
+  color: #000000;
 }
 
 .post-link:visited {
-  color: brown;
+  color: #383838;
 }
 
 .post-link:hover {
-  color: gray;
+  color: #8c8c8c;
 }
 
 .post-link:active {
-  color: gray;
+  color: #8c8c8c;
 }
 
 /* Image Specific Styles */
@@ -319,15 +328,20 @@ table, th, td {
 }
 
 .footer-link {
-  color: inherit;
+  color: #8c8c8c;
   text-decoration: none;
 }
 
 .footer-link:hover {
-  color: #1573b3;
+  color: #d1d1d1;
 }
 
 .copyright{
   margin-top: 5px;
   margin-bottom: 0;
+}
+
+
+.post-body p {
+  text-align: center;
 }
